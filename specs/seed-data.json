@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Intro to Spring Boot Dependency Injection",
+    "description": "Cover constructor vs field injection, @Autowired pitfalls, and a live demo wiring a service into a controller.",
+    "assignedRole": "Content",
+    "state": "code_ready",
+    "createdAt": "2026-06-01"
+  },
+  {
+    "id": 2,
+    "title": "Java Streams API Deep Dive",
+    "description": "Walk through map/filter/reduce, collectors, and common performance traps with intermediate operations.",
+    "assignedRole": "Content",
+    "state": "code_ready",
+    "createdAt": "2026-06-03"
+  },
+  {
+    "id": 3,
+    "title": "Building a REST API with FastAPI",
+    "description": "Screen recording of building CRUD endpoints, request validation with Pydantic, and auto-generated docs.",
+    "assignedRole": "Editor",
+    "state": "recorded",
+    "createdAt": "2026-06-05"
+  },
+  {
+    "id": 4,
+    "title": "Docker Compose for Local Dev",
+    "description": "Recorded walkthrough of multi-container setup for a Postgres + backend + frontend stack.",
+    "assignedRole": "Editor",
+    "state": "recorded",
+    "createdAt": "2026-06-06"
+  },
+  {
+    "id": 5,
+    "title": "Kubernetes Basics: Pods and Services",
+    "description": "Editing pass to trim dead air, add lower-thirds, and insert diagram overlays explaining Service types.",
+    "assignedRole": "Editor",
+    "state": "editing",
+    "createdAt": "2026-06-08"
+  },
+  {
+    "id": 6,
+    "title": "Git Rebase vs Merge Explained",
+    "description": "Editing in progress: syncing terminal captures with narration and adding chapter markers.",
+    "assignedRole": "Editor",
+    "state": "editing",
+    "createdAt": "2026-06-09"
+  },
+  {
+    "id": 7,
+    "title": "Microservices Communication Patterns",
+    "description": "Uploaded to the platform, pending upload-quality and metadata verification before publishing.",
+    "assignedRole": "Uploader",
+    "state": "uploaded",
+    "createdAt": "2026-06-11"
+  },
+  {
+    "id": 8,
+    "title": "SQL Window Functions Tutorial",
+    "description": "Uploaded; awaiting thumbnail, title, and description verification before going live.",
+    "assignedRole": "Uploader",
+    "state": "uploaded",
+    "createdAt": "2026-06-12"
+  },
+  {
+    "id": 9,
+    "title": "Getting Started with React Hooks",
+    "description": "Published series opener covering useState and useEffect with a small counter/timer demo.",
+    "assignedRole": "Uploader",
+    "state": "published",
+    "createdAt": "2026-06-14"
+  },
+  {
+    "id": 10,
+    "title": "CI/CD Pipelines with GitHub Actions",
+    "description": "Published walkthrough of build/test/deploy workflow with matrix builds and caching.",
+    "assignedRole": "Admin",
+    "state": "published",
+    "createdAt": "2026-06-15"
+  }
+]
