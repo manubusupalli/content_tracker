@@ -31,6 +31,7 @@ const ROLE_MAP = {
 };
 
 const TOKEN_KEY = 'telusko_token';
+const API_BASE_URL = 'http://localhost:8000';
 
 /* ════════════════════════════════════════════════════════
    Token / Auth helpers
@@ -105,7 +106,7 @@ async function handleLoginSubmit(e) {
 
   try {
     const body = new URLSearchParams({ username, password });
-    const response = await fetch('/api/auth/login', {
+    const response = await fetch(`${API_BASE_URL}/api/auth/login`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: body.toString(),
@@ -167,7 +168,7 @@ async function apiFetch(url, options = {}) {
   const headers = { ...(options.headers || {}) };
   if (token) headers['Authorization'] = `Bearer ${token}`;
 
-  const response = await fetch(url, { ...options, headers });
+  const response = await fetch(`${API_BASE_URL}${url}`, { ...options, headers });
 
   // Token expired or invalid → force re-login
   if (response.status === 401) {

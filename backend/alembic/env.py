@@ -9,6 +9,7 @@ from alembic import context
 
 from database import Base, DATABASE_URL
 import models.task  # noqa: F401  registers Task on Base.metadata for autogenerate
+import models.user  # noqa: F401  registers User on Base.metadata for autogenerate
 
 config = context.config
 config.set_main_option("sqlalchemy.url", DATABASE_URL)
