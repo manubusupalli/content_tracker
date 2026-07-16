@@ -37,6 +37,14 @@ Rendering is a full re-render on every mutation: `renderBoard()` re-fetches all 
 
 The `api` object is the single point of contact with the backend; every method surfaces failures via `showToast()` rather than failing silently, and `getTasks()` degrades gracefully to the last known `tasks` array on non-auth errors.
 
+
+### UV package manager
+
+'Use uv as the package manager. All Python commands run
+through uv — uv pip install for packages, uv run pytest for tests,
+uv run python for scripts. Never use pip or python directly.
+
+
 ## Code Style
 - Python: snake case for functions and variables
 - Always use type hints
