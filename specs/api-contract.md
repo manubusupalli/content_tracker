@@ -50,6 +50,67 @@ the token it returns.)
 
 ---
 
+## Auth: `POST /api/auth/users` (admin only)
+
+(Not called by the frontend today — no UI exists for user management —
+but implemented on the backend as an admin-only endpoint for creating
+accounts. Documented here for completeness and future frontend work.)
+
+- **HTTP method / URL**: `POST /api/auth/users` (no path or query params)
+- **Authorization**: requires `Authorization: Bearer <token>` for a user
+  whose JWT `role` claim is `admin`; any other role gets `403 Forbidden`.
+- **Request headers**: `Content-Type: application/json`.
+- **Request body** (JSON):
+  ```json
+  {
+    "username": "string (non-empty)",
+    "password": "string (non-empty, plaintext — hashed server-side)",
+    "role": "string (one of admin|content_team|video_editor|uploader)"
+  }
+  ```
+- **Success response body** (`201 Created`):
+  ```json
+  {
+    "id": 5,
+    "username": "string",
+    "role": "string"
+  }
+  ```
+  Note: `hashed_password` is never returned.
+- **Failure response body**:
+  - `401` — missing/invalid token (same shape as other endpoints:
+    `{"detail": "Could not validate credentials"}`).
+  - `403` — authenticated as a non-admin role:
+    `{"detail": "role <role> is not permitted to perform this action"}`.
+  - `409` — `username` already exists:
+    `{"detail": "Username '<username>' is already taken"}`.
+
+---
+
+## Auth: `GET /api/auth/me`
+
+(Not called by the frontend today, but implemented on the backend so a
+client can look up the identity/role behind the current token without
+decoding the JWT client-side.)
+
+- **HTTP method / URL**: `GET /api/auth/me` (no path or query params)
+- **Authorization**: requires `Authorization: Bearer <token>` for any
+  authenticated user (all four roles permitted).
+- **Request body**: none.
+- **Success response body** (`200 OK`):
+  ```json
+  {
+    "id": 1,
+    "username": "string",
+    "role": "string (admin|content_team|video_editor|uploader)"
+  }
+  ```
+- **Failure response body**: `401` if the token is missing, invalid, or
+  belongs to a username no longer present in the database:
+  `{"detail": "Could not validate credentials"}`.
+
+---
+
 ## `getTasks` — `GET /api/tasks`
 
 - **HTTP method / URL pattern**: `GET /api/tasks`. No path or query
